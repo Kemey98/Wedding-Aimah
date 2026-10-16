@@ -771,7 +771,7 @@ body {
         document.getElementById("ucapan-prev").style.opacity = ucapanCurrentPage === 0 ? "0.3" : "1";
         document.getElementById("ucapan-next").style.opacity = ucapanCurrentPage >= totalPages - 1 ? "0.3" : "1";
         cards.style.opacity = "0"; cards.style.transform = "translateX(20px)"; cards.style.transition = "none";
-        cards.innerHTML = pageData.map(u => `<div class="ucapan-item" style="margin-bottom:10px;"><div class="ucapan-name">${escHtml(u.nama)}</div><div class="ucapan-text">"${escHtml(u.ucapan)}"</div>${u.masa ? `<div class="ucapan-time">${escHtml(u.masa)}</div>` : ""}</div>`).join("");
+        cards.innerHTML = pageData.map(u => `<div class="ucapan-item" style="margin-bottom:10px;"><div class="ucapan-name">${escHtml(u.nama)}</div><div class="ucapan-text">"${escHtml(u.ucapan)}"</div></div>`).join("");
         requestAnimationFrame(() => { cards.style.transition = "opacity 0.3s ease, transform 0.3s ease"; cards.style.opacity = "1"; cards.style.transform = "translateX(0)"; });
       }
 
