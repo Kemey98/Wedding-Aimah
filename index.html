@@ -429,7 +429,7 @@
           </p>
 
            <p class="utama-tagline fade-in" style="color: var(--brown-dark);">
-            Dengan penuh kesyukuran kehadrat Ilahi, kami menjemput Dato'/Datin/Tuan/Puan/Encik/Cik untuk hadir ke majlis perkahwinan anaknda kami.
+            Dengan penuh kesyukuran kehadrat Ilahi, kami menjemput Dato'/Datin/Tuan/Puan/Encik/Cik untuk hadir ke majlis perkahwinan anakanda kami.
           </p>
 
           <div class="utama-couple fade-in" style="text-transform: uppercase;font-family: 'Abril Fatface', serif;">
@@ -859,6 +859,7 @@
           const bg = document.getElementById("bgVideo");
           if (bg) { bg.currentTime = 0; bg.play().catch(() => {}); }
           goTo("utama");
+          window.startAutoScroll && window.startAutoScroll(); 
           intro.classList.add("hide");
           setTimeout(() => intro.remove(), 900);
         };
@@ -878,6 +879,78 @@
           if (p && p.catch) p.catch(closeIntro);
         });
       })();
+
+      /* ── AUTO SCROLL BERULANG (page utama) ── */
+(function () {
+  const page = document.getElementById("page-utama");
+  const SPEED = 30;            // px sesaat (kecil = perlahan)
+  const END_PAUSE = 2500;      // ms, berhenti di hujung sebelum naik semula
+  const TOP_PAUSE = 1500;      // ms, berhenti di atas sebelum turun semula
+  const RESUME_DELAY = 3000;   // ms, sambung selepas pengguna berhenti sentuh
+
+  let pos = 0, last = 0, running = false, resumeTimer = null, token = 0;
+
+  function step(t) {
+    if (!running) return;
+    if (!last) last = t;
+    const dt = (t - last) / 1000;
+    last = t;
+
+    if (currentPage === "utama") {
+      // kalau pengguna scroll sendiri, ikut kedudukan semasa
+      if (Math.abs(page.scrollTop - pos) > 2) pos = page.scrollTop;
+
+      const max = page.scrollHeight - page.clientHeight;
+      pos += SPEED * dt;
+      if (pos >= max) {
+        page.scrollTop = max;
+        running = false;
+        loopBack();
+        return;
+      }
+      page.scrollTop = pos;
+    }
+    requestAnimationFrame(step);
+  }
+
+  function loopBack() {
+    const my = token;
+    setTimeout(() => {
+      if (my !== token || currentPage !== "utama") return;   // pengguna sudah sentuh
+      page.scrollTo({ top: 0, behavior: "smooth" });
+      setTimeout(() => {
+        if (my !== token) return;
+        start();
+      }, 1200 + TOP_PAUSE);
+    }, END_PAUSE);
+  }
+
+  function start() {
+    if (running) return;
+    running = true;
+    last = 0;
+    pos = page.scrollTop;
+    requestAnimationFrame(step);
+  }
+
+  function userTouch() {
+    running = false;
+    token++;                              // batalkan semua timer loop yang tertunggu
+    clearTimeout(resumeTimer);
+    resumeTimer = setTimeout(() => {
+      if (currentPage !== "utama") return;
+      const max = page.scrollHeight - page.clientHeight;
+      if (page.scrollTop >= max - 2) loopBack();   // pengguna berhenti di bawah
+      else start();
+    }, RESUME_DELAY);
+  }
+
+  ["touchstart", "wheel", "pointerdown", "keydown"].forEach(ev =>
+    page.addEventListener(ev, userTouch, { passive: true })
+  );
+
+  window.startAutoScroll = function () { setTimeout(start, 1500); };
+})();
     </script>
   </body>
 </html>
