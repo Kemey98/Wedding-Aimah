@@ -148,7 +148,7 @@ body {
       /* ══════════════════════════════════════
          PAGE 1 — UTAMA
       ══════════════════════════════════════ */
-   #page-majlis, #page-gift, #page-galeri, #page-ucapan, #page-rsvp, #page-utama {
+   #page-majlis, #page-gift, #page-ucapan, #page-rsvp, #page-utama {
   background: transparent;
 }
       #bgVideo {
@@ -244,23 +244,6 @@ body {
       .dress-label { font-size: 13px; color: var(--text-faint); margin-top: 2px; }
 
       /* ══════════════════════════════════════
-         PAGE 3 — GALERI
-      ══════════════════════════════════════ */
-      .gallery-grid { display: grid; grid-template-columns: repeat(2,1fr); gap: 3px; }
-      .gallery-item { aspect-ratio: 1; background: var(--cream2); position: relative; overflow: hidden; cursor: pointer; }
-      .gallery-item img { width: 100%; height: 100%; object-fit: cover; transition: transform 0.4s ease; }
-      .gallery-item:hover img { transform: scale(1.05); }
-      .gallery-placeholder { width: 100%; height: 100%; display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 6px; background: linear-gradient(135deg,#e8d9c4,#d4c4a8); }
-      .gallery-placeholder i { font-size: 28px; color: var(--brown-pale); }
-      .gallery-placeholder span { font-size: 11px; color: var(--brown-pale); letter-spacing: 1px; }
-      .gallery-item.wide { grid-column: span 2; aspect-ratio: 2/1; }
-      .gallery-note { padding: 1.5rem; text-align: center; font-size: 17px; color: var(--text-faint); font-style: italic; line-height: 1.8; }
-      #lightbox { position: fixed; inset: 0; background: rgba(20,10,5,0.95); z-index: 500; display: none; align-items: center; justify-content: center; padding: 2rem; }
-      #lightbox.open { display: flex; }
-      #lightbox img { max-width: 100%; max-height: 80vh; border-radius: 8px; object-fit: contain; }
-      #lightbox-close { position: absolute; top: 1.5rem; right: 1.5rem; background: transparent; border: none; color: rgba(255,255,255,0.7); font-size: 28px; cursor: pointer; }
-
-      /* ══════════════════════════════════════
          PAGE 4 — UCAPAN
       ══════════════════════════════════════ */
       .ucapan-form-wrap { padding: 1.2rem 1.5rem; background: rgba(255,255,255,0.6); border-bottom: 0.5px solid rgba(184,134,11,0.15); }
@@ -312,7 +295,7 @@ body {
       .gift-acc-num { font-size: 22px; color: var(--brown); letter-spacing: 3px; font-weight: 500; margin-bottom: 4px; }
       .gift-acc-name { font-size: 15px; color: var(--text-muted); font-style: italic; margin-bottom: 16px; }
       .qr-wrap { display: inline-flex; flex-direction: column; align-items: center; gap: 10px; margin: 0 auto; }
-      .qr-box { width: 200px; height: 200px; border: 2px solid rgba(184,134,11,0.2); border-radius: 16px; overflow: hidden; display: flex; align-items: center; justify-content: center; background: var(--white); }
+      .qr-box { width: 350px; height: 300px; border: 2px solid rgba(184,134,11,0.2); border-radius: 16px; overflow: hidden; display: flex; align-items: center; justify-content: center; background: var(--white); }
       .qr-box img { width: 100%; height: 100%; object-fit: contain; padding: 10px; }
       .qr-placeholder { display: flex; flex-direction: column; align-items: center; gap: 8px; color: var(--brown-pale); }
       .qr-placeholder i { font-size: 48px; }
@@ -483,7 +466,7 @@ body {
               <div class="event-card-header"><i class="ti ti-confetti"></i><span class="event-type">Akad Nikah & Majlis Resepsi</span></div>
               <div class="event-card-body">
                 <div class="event-row"><span class="event-row-label">Tarikh</span><span class="event-row-value">Sabtu, 26 Disember 2026</span></div>
-                <div class="event-row"><span class="event-row-label">Masa</span><span class="event-row-value">12:00 Tengah Hari — 6:00 Petang</span></div>
+                <div class="event-row"><span class="event-row-label">Masa</span><span class="event-row-value">12:00 Tghari — 6:00 Ptg</span></div>
                 <div class="event-row"><span class="event-row-label">Tempat</span><span class="event-row-value">Teratak Ruzuki</span></div>
                 <div class="event-row"><span class="event-row-label">Alamat</span><span class="event-row-value">Kampung Padang Cina</span></div>
                 <a class="map-btn" href="https://waze.com/ul/hw30f65413" target="_blank"><i class="ti ti-map-pin"></i> Lokasi</a>
@@ -495,20 +478,6 @@ body {
               <div class="dress-item"><div class="dress-swatch" style="background:#d4a5a5"></div><div class="dress-name">Dusty Rose</div><div class="dress-label">Perempuan</div></div>
             </div>
           </div>
-        </div>
-
-        <!-- PAGE 3: GALERI -->
-        <div class="page" id="page-galeri">
-          <div class="page-header fade-in"><div class="page-title">Galeri</div><div class="page-subtitle">Kenangan indah bersama</div></div>
-          <div class="gallery-grid">
-            <div class="gallery-item wide fade-in"><div class="gallery-placeholder"><i class="ti ti-camera"></i><span>Foto Utama</span></div></div>
-            <div class="gallery-item fade-in"><div class="gallery-placeholder"><i class="ti ti-heart"></i><span>Foto 2</span></div></div>
-            <div class="gallery-item fade-in"><div class="gallery-placeholder"><i class="ti ti-heart"></i><span>Foto 3</span></div></div>
-            <div class="gallery-item fade-in"><div class="gallery-placeholder"><i class="ti ti-heart"></i><span>Foto 4</span></div></div>
-            <div class="gallery-item fade-in"><div class="gallery-placeholder"><i class="ti ti-heart"></i><span>Foto 5</span></div></div>
-            <div class="gallery-item wide fade-in"><div class="gallery-placeholder"><i class="ti ti-camera"></i><span>Foto 6</span></div></div>
-          </div>
-          <p class="gallery-note fade-in">Saiz disyorkan: <strong>800×800px</strong> (1:1) atau <strong>1600×900px</strong> (wide).</p>
         </div>
 
         <!-- PAGE 4: UCAPAN -->
@@ -568,29 +537,16 @@ body {
               <div class="gift-card-header"><i class="ti ti-building-bank"></i><span class="gift-card-title">Maybank</span></div>
               <div class="gift-card-body">
                 <div class="gift-acc-label">No. Akaun</div>
-                <div class="gift-acc-num">1234 5678 9012</div>
-                <div class="gift-acc-name">Ahmad Hafizi bin Abdullah</div>
+                <!-- <div class="gift-acc-num">1531 3130 5991</div> -->
+                <div class="gift-acc-name">Nu'Aimah Binti Mohamad Ruzuki</div>
                 <div class="qr-wrap">
-                  <div class="qr-box"><div class="qr-placeholder"><i class="ti ti-qrcode"></i><span>Letak fail QR di sini<br/>qr-maybank.png</span></div></div>
+                  <div class="qr-box"><div class="qr-placeholder"><span><img src="https://ik.imagekit.io/jhwoljxhp/WhatsApp_Image_2026-10-25_at_02.47.12-removebg-preview.png"><br/></span></div></div>
                   <div class="qr-label">Imbas untuk transfer</div>
                 </div>
-                <button class="gift-copy-btn" onclick="copyText('123456789012','No. akaun disalin!')"><i class="ti ti-copy"></i> Salin No. Akaun</button>
+                <button class="gift-copy-btn" onclick="copyText('153131305991','No. akaun disalin!')"><i class="ti ti-copy"></i> Salin No. Akaun</button>
               </div>
             </div>
-            <div class="gift-card fade-in">
-              <div class="gift-card-header"><i class="ti ti-wallet"></i><span class="gift-card-title">Touch 'n Go eWallet</span></div>
-              <div class="gift-card-body">
-                <div class="gift-acc-label">No. Telefon</div>
-                <div class="gift-acc-num">012-345 6789</div>
-                <div class="gift-acc-name">Ahmad Hafizi</div>
-                <div class="qr-wrap">
-                  <div class="qr-box"><div class="qr-placeholder"><i class="ti ti-qrcode"></i><span>Letak fail QR di sini<br/>qr-tng.png</span></div></div>
-                  <div class="qr-label">Imbas untuk transfer</div>
-                </div>
-                <button class="gift-copy-btn" onclick="copyText('0123456789','No. telefon disalin!')"><i class="ti ti-copy"></i> Salin No. Telefon</button>
-              </div>
-            </div>
-            <p class="gallery-note fade-in" style="padding:0 0 1rem; font-weight: bold;color: var(--brown-dark);" >Terima kasih atas segala doa. 💛</p>
+            <p class="gallery-note fade-in" style="padding:0 0 1rem; text-align: center; font-weight: bold;color: var(--brown-dark);" >Terima kasih atas segala doa. 💛</p>
           </div>
         </div>
 
@@ -599,16 +555,10 @@ body {
       <nav id="bottom-nav" role="navigation" aria-label="Navigasi utama">
         <button class="nav-item active" id="nav-utama" onclick="goTo('utama')" aria-label="Utama"><i class="ti ti-home"></i><span>Utama</span></button>
         <button class="nav-item" id="nav-majlis" onclick="goTo('majlis')" aria-label="Majlis"><i class="ti ti-tent"></i><span>Majlis</span></button>
-        <button class="nav-item" id="nav-galeri" onclick="goTo('galeri')" aria-label="Galeri"><i class="ti ti-photo"></i><span>Galeri</span></button>
         <button class="nav-item" id="nav-ucapan" onclick="goTo('ucapan')" aria-label="Ucapan"><i class="ti ti-message-dots"></i><span>Ucapan</span></button>
         <button class="nav-item" id="nav-rsvp" onclick="goTo('rsvp')" aria-label="RSVP"><b class="nav-rsvp-ico">RSVP</b><span>RSVP</span></button>
         <button class="nav-item" id="nav-gift" onclick="goTo('gift')" aria-label="Money Gift"><i class="ti ti-qrcode"></i><span>Gift</span></button>
       </nav>
-    </div>
-
-    <div id="lightbox" role="dialog">
-      <button id="lightbox-close" onclick="closeLightbox()"><i class="ti ti-x"></i></button>
-      <img id="lightbox-img" src="" alt="Gambar galeri"/>
     </div>
 
     <div class="toast" id="toast"></div>
